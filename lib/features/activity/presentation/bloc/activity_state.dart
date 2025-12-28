@@ -1,0 +1,30 @@
+part of 'activity_bloc.dart';
+
+sealed class ActivityState extends Equatable {
+  const ActivityState();
+
+  @override
+  List<Object> get props => [];
+}
+
+final class ActivityInitial extends ActivityState {}
+
+final class ActivityLoading extends ActivityState {}
+
+final class ActivityLoaded extends ActivityState {
+  final List<Activity> activities;
+
+  const ActivityLoaded({required this.activities});
+
+  @override
+  List<Object> get props => [activities];
+}
+
+final class ActivityError extends ActivityState {
+  final String message;
+
+  const ActivityError({required this.message});
+
+  @override
+  List<Object> get props => [message];
+}
